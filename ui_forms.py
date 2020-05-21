@@ -28,8 +28,6 @@ class PianoForm(object):
         self.pushButton.setObjectName("pushButton")
         self.pushButton_2 = QtWidgets.QPushButton(Form)
         self.pushButton_2.setGeometry(QtCore.QRect(50, 40, 30, 190))
-        font = QtGui.QFont()
-        font.setPointSize(12)
         self.pushButton_2.setFont(font)
         self.pushButton_2.setStyleSheet("background-color:black;\n"
                                         "color:white;\n"
@@ -37,8 +35,6 @@ class PianoForm(object):
         self.pushButton_2.setObjectName("pushButton_2")
         self.pushButton_3 = QtWidgets.QPushButton(Form)
         self.pushButton_3.setGeometry(QtCore.QRect(80, 30, 40, 190))
-        font = QtGui.QFont()
-        font.setPointSize(12)
         self.pushButton_3.setFont(font)
         self.pushButton_3.setStyleSheet("background-color: white;\n"
                                         "text-color: black;\n"
@@ -46,8 +42,6 @@ class PianoForm(object):
         self.pushButton_3.setObjectName("pushButton_3")
         self.pushButton_4 = QtWidgets.QPushButton(Form)
         self.pushButton_4.setGeometry(QtCore.QRect(120, 40, 30, 190))
-        font = QtGui.QFont()
-        font.setPointSize(12)
         self.pushButton_4.setFont(font)
         self.pushButton_4.setStyleSheet("background-color:black;\n"
                                         "color:white;\n"
@@ -55,8 +49,6 @@ class PianoForm(object):
         self.pushButton_4.setObjectName("pushButton_4")
         self.pushButton_5 = QtWidgets.QPushButton(Form)
         self.pushButton_5.setGeometry(QtCore.QRect(150, 30, 40, 190))
-        font = QtGui.QFont()
-        font.setPointSize(12)
         self.pushButton_5.setFont(font)
         self.pushButton_5.setStyleSheet("background-color: white;\n"
                                         "text-color: black;\n"
@@ -64,8 +56,6 @@ class PianoForm(object):
         self.pushButton_5.setObjectName("pushButton_5")
         self.pushButton_6 = QtWidgets.QPushButton(Form)
         self.pushButton_6.setGeometry(QtCore.QRect(190, 40, 30, 190))
-        font = QtGui.QFont()
-        font.setPointSize(12)
         self.pushButton_6.setFont(font)
         self.pushButton_6.setStyleSheet("background-color:black;\n"
                                         "color:white;\n"
@@ -73,8 +63,6 @@ class PianoForm(object):
         self.pushButton_6.setObjectName("pushButton_6")
         self.pushButton_7 = QtWidgets.QPushButton(Form)
         self.pushButton_7.setGeometry(QtCore.QRect(220, 30, 40, 190))
-        font = QtGui.QFont()
-        font.setPointSize(12)
         self.pushButton_7.setFont(font)
         self.pushButton_7.setStyleSheet("background-color: white;\n"
                                         "text-color: black;\n"
@@ -82,8 +70,6 @@ class PianoForm(object):
         self.pushButton_7.setObjectName("pushButton_7")
         self.pushButton_8 = QtWidgets.QPushButton(Form)
         self.pushButton_8.setGeometry(QtCore.QRect(260, 40, 30, 190))
-        font = QtGui.QFont()
-        font.setPointSize(12)
         self.pushButton_8.setFont(font)
         self.pushButton_8.setStyleSheet("background-color:black;\n"
                                         "color:white;\n"
@@ -91,8 +77,6 @@ class PianoForm(object):
         self.pushButton_8.setObjectName("pushButton_8")
         self.pushButton_9 = QtWidgets.QPushButton(Form)
         self.pushButton_9.setGeometry(QtCore.QRect(290, 30, 40, 190))
-        font = QtGui.QFont()
-        font.setPointSize(12)
         self.pushButton_9.setFont(font)
         self.pushButton_9.setStyleSheet("background-color: white;\n"
                                         "text-color: black;\n"
@@ -100,8 +84,6 @@ class PianoForm(object):
         self.pushButton_9.setObjectName("pushButton_9")
         self.pushButton_10 = QtWidgets.QPushButton(Form)
         self.pushButton_10.setGeometry(QtCore.QRect(330, 40, 30, 190))
-        font = QtGui.QFont()
-        font.setPointSize(12)
         self.pushButton_10.setFont(font)
         self.pushButton_10.setStyleSheet("background-color:black;\n"
                                          "color:white;\n"
@@ -109,8 +91,6 @@ class PianoForm(object):
         self.pushButton_10.setObjectName("pushButton_10")
         self.pushButton_11 = QtWidgets.QPushButton(Form)
         self.pushButton_11.setGeometry(QtCore.QRect(360, 30, 40, 190))
-        font = QtGui.QFont()
-        font.setPointSize(12)
         self.pushButton_11.setFont(font)
         self.pushButton_11.setStyleSheet("background-color: white;\n"
                                          "text-color: black;\n"
@@ -118,8 +98,6 @@ class PianoForm(object):
         self.pushButton_11.setObjectName("pushButton_11")
         self.pushButton_12 = QtWidgets.QPushButton(Form)
         self.pushButton_12.setGeometry(QtCore.QRect(400, 40, 30, 190))
-        font = QtGui.QFont()
-        font.setPointSize(12)
         self.pushButton_12.setFont(font)
         self.pushButton_12.setStyleSheet("background-color:black;\n"
                                          "color:white;\n"
@@ -127,8 +105,6 @@ class PianoForm(object):
         self.pushButton_12.setObjectName("pushButton_12")
         self.pushButton_13 = QtWidgets.QPushButton(Form)
         self.pushButton_13.setGeometry(QtCore.QRect(430, 30, 40, 190))
-        font = QtGui.QFont()
-        font.setPointSize(12)
         self.pushButton_13.setFont(font)
         self.pushButton_13.setStyleSheet("background-color: white;\n"
                                          "text-color: black;\n"
@@ -136,8 +112,6 @@ class PianoForm(object):
         self.pushButton_13.setObjectName("pushButton_13")
         self.pushButton_14 = QtWidgets.QPushButton(Form)
         self.pushButton_14.setGeometry(QtCore.QRect(470, 40, 30, 190))
-        font = QtGui.QFont()
-        font.setPointSize(12)
         self.pushButton_14.setFont(font)
         self.pushButton_14.setStyleSheet("background-color:black;\n"
                                          "color:white;\n"
@@ -145,8 +119,6 @@ class PianoForm(object):
         self.pushButton_14.setObjectName("pushButton_14")
         self.pushButton_15 = QtWidgets.QPushButton(Form)
         self.pushButton_15.setGeometry(QtCore.QRect(500, 30, 40, 190))
-        font = QtGui.QFont()
-        font.setPointSize(12)
         self.pushButton_15.setFont(font)
         self.pushButton_15.setStyleSheet("background-color: white;\n"
                                          "text-color: black;\n"
@@ -154,8 +126,6 @@ class PianoForm(object):
         self.pushButton_15.setObjectName("pushButton_15")
         self.pushButton_16 = QtWidgets.QPushButton(Form)
         self.pushButton_16.setGeometry(QtCore.QRect(540, 40, 30, 190))
-        font = QtGui.QFont()
-        font.setPointSize(12)
         self.pushButton_16.setFont(font)
         self.pushButton_16.setStyleSheet("background-color:black;\n"
                                          "color:white;\n"
@@ -163,8 +133,6 @@ class PianoForm(object):
         self.pushButton_16.setObjectName("pushButton_16")
         self.pushButton_17 = QtWidgets.QPushButton(Form)
         self.pushButton_17.setGeometry(QtCore.QRect(580, 40, 91, 81))
-        font = QtGui.QFont()
-        font.setPointSize(12)
         self.pushButton_17.setFont(font)
         self.pushButton_17.setStyleSheet("background-color: white;\n"
                                          "text-color: black;\n"
@@ -173,8 +141,6 @@ class PianoForm(object):
         self.pushButton_17.setObjectName("pushButton_17")
         self.pushButton_18 = QtWidgets.QPushButton(Form)
         self.pushButton_18.setGeometry(QtCore.QRect(630, 130, 91, 81))
-        font = QtGui.QFont()
-        font.setPointSize(12)
         self.pushButton_18.setFont(font)
         self.pushButton_18.setStyleSheet("background-color: white;\n"
                                          "text-color: black;\n"
@@ -273,8 +239,6 @@ class PianoForm(object):
         self.pushButton_19.setObjectName("pushButton_19")
         self.pushButton_20 = QtWidgets.QPushButton(Form)
         self.pushButton_20.setGeometry(QtCore.QRect(750, 130, 170, 30))
-        font = QtGui.QFont()
-        font.setPointSize(10)
         self.pushButton_20.setFont(font)
         self.pushButton_20.setObjectName("pushButton_20")
 
@@ -383,8 +347,6 @@ class PhotoEditorForm(object):
         self.spinBox_3.setObjectName("spinBox_3")
         self.spinBox_4 = QtWidgets.QSpinBox(Form)
         self.spinBox_4.setGeometry(QtCore.QRect(410, 630, 42, 22))
-        font = QtGui.QFont()
-        font.setPointSize(11)
         self.spinBox_4.setFont(font)
         self.spinBox_4.setObjectName("spinBox_4")
         self.label_5 = QtWidgets.QLabel(Form)
@@ -418,8 +380,6 @@ class PhotoEditorForm(object):
         self.pushButton_6.setObjectName("pushButton_6")
         self.label_8 = QtWidgets.QLabel(Form)
         self.label_8.setGeometry(QtCore.QRect(590, 211, 101, 31))
-        font = QtGui.QFont()
-        font.setPointSize(10)
         self.label_8.setFont(font)
         self.label_8.setObjectName("label_8")
         self.pushButton_7 = QtWidgets.QPushButton(Form)
@@ -427,8 +387,6 @@ class PhotoEditorForm(object):
         self.pushButton_7.setObjectName("pushButton_7")
         self.label_9 = QtWidgets.QLabel(Form)
         self.label_9.setGeometry(QtCore.QRect(590, 270, 81, 31))
-        font = QtGui.QFont()
-        font.setPointSize(10)
         self.label_9.setFont(font)
         self.label_9.setObjectName("label_9")
         self.pushButton_8 = QtWidgets.QPushButton(Form)
@@ -436,8 +394,6 @@ class PhotoEditorForm(object):
         self.pushButton_8.setObjectName("pushButton_8")
         self.label_10 = QtWidgets.QLabel(Form)
         self.label_10.setGeometry(QtCore.QRect(590, 340, 111, 31))
-        font = QtGui.QFont()
-        font.setPointSize(10)
         self.label_10.setFont(font)
         self.label_10.setObjectName("label_10")
         self.pushButton_9 = QtWidgets.QPushButton(Form)
@@ -445,8 +401,6 @@ class PhotoEditorForm(object):
         self.pushButton_9.setObjectName("pushButton_9")
         self.label_11 = QtWidgets.QLabel(Form)
         self.label_11.setGeometry(QtCore.QRect(590, 410, 111, 31))
-        font = QtGui.QFont()
-        font.setPointSize(10)
         self.label_11.setFont(font)
         self.label_11.setObjectName("label_11")
         self.pushButton_10 = QtWidgets.QPushButton(Form)
@@ -454,8 +408,6 @@ class PhotoEditorForm(object):
         self.pushButton_10.setObjectName("pushButton_10")
         self.label_12 = QtWidgets.QLabel(Form)
         self.label_12.setGeometry(QtCore.QRect(593, 480, 111, 31))
-        font = QtGui.QFont()
-        font.setPointSize(10)
         self.label_12.setFont(font)
         self.label_12.setObjectName("label_12")
         self.pushButton_11 = QtWidgets.QPushButton(Form)
@@ -601,8 +553,6 @@ class VideoEditorForm(object):
         self.radioButton.setObjectName("radioButton")
         self.radioButton_2 = QtWidgets.QRadioButton(Form)
         self.radioButton_2.setGeometry(QtCore.QRect(20, 670, 550, 30))
-        font = QtGui.QFont()
-        font.setPointSize(9)
         self.radioButton_2.setFont(font)
         self.radioButton_2.setStyleSheet("background-color:#d0eaf5;")
         self.radioButton_2.setObjectName("radioButton_2")
@@ -612,8 +562,6 @@ class VideoEditorForm(object):
         self.pushButton_8.setObjectName("pushButton_8")
         self.label = QtWidgets.QLabel(Form)
         self.label.setGeometry(QtCore.QRect(20, 580, 160, 31))
-        font = QtGui.QFont()
-        font.setPointSize(9)
         self.label.setFont(font)
         self.label.setObjectName("label")
         self.doubleSpinBox = QtWidgets.QDoubleSpinBox(Form)

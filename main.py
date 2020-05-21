@@ -13,7 +13,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import Qt, QPoint
 from ui_forms import PianoForm, PhotoEditorForm, VideoEditorForm
 
-# Переменные с ником пользователя, его сохранённой музыкой и сохранёнными изображениями
+# Переменные с ником пользователя, его сохранённой музыкой и изображениями
 USER = ''
 SAVED_IMAGE = list()
 SAVED_MUSIC = list()
@@ -49,6 +49,7 @@ class Piano(QMainWindow, PianoForm):
             'Z': 'source/music/baraban.mp3',
             'X': 'source/music/dishes.mp3'
         }
+
         self.keyboard_keys = {
             81: 'Q',
             65: 'A',
@@ -69,8 +70,10 @@ class Piano(QMainWindow, PianoForm):
             90: 'Z',
             88: 'X',
         }
+
         # Переменная для записи музыки
         self.recording = list()
+
         self.pushButton.clicked.connect(self.sound)
         self.pushButton_2.clicked.connect(self.sound)
         self.pushButton_3.clicked.connect(self.sound)
