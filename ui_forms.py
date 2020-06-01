@@ -1,5 +1,134 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
+# Формы, созданные с помощью QT-Designer
+
+
+# Форма регистрации
+class RegistrationForm(object):
+    def setupUi(self, Form):
+        Form.setObjectName("Form")
+        Form.resize(409, 389)
+        Form.setStyleSheet(" background-image: url('source/image/background_enter.jpg');")
+        self.label = QtWidgets.QLabel(Form)
+        self.label.setGeometry(QtCore.QRect(110, 50, 171, 41))
+        font = QtGui.QFont()
+        font.setPointSize(17)
+        self.label.setFont(font)
+        self.label.setObjectName("label")
+        self.label_2 = QtWidgets.QLabel(Form)
+        self.label_2.setGeometry(QtCore.QRect(71, 133, 50, 21))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.label_2.setFont(font)
+        self.label_2.setObjectName("label_2")
+        self.label_3 = QtWidgets.QLabel(Form)
+        self.label_3.setGeometry(QtCore.QRect(64, 187, 60, 31))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.label_3.setFont(font)
+        self.label_3.setObjectName("label_3")
+        self.label_4 = QtWidgets.QLabel(Form)
+        self.label_4.setGeometry(QtCore.QRect(65, 248, 60, 31))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.label_4.setFont(font)
+        self.label_4.setObjectName("label_4")
+        self.lineEdit = QtWidgets.QLineEdit(Form)
+        self.lineEdit.setGeometry(QtCore.QRect(130, 130, 220, 30))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.lineEdit.setFont(font)
+        self.lineEdit.setObjectName("lineEdit")
+        self.lineEdit_2 = QtWidgets.QLineEdit(Form)
+        self.lineEdit_2.setGeometry(QtCore.QRect(130, 190, 220, 30))
+        self.lineEdit_2.setObjectName("lineEdit_2")
+        self.lineEdit_3 = QtWidgets.QLineEdit(Form)
+        self.lineEdit_3.setGeometry(QtCore.QRect(130, 250, 220, 30))
+        self.lineEdit_3.setObjectName("lineEdit_3")
+        self.pushButton = QtWidgets.QPushButton(Form)
+        self.pushButton.setGeometry(QtCore.QRect(100, 310, 220, 31))
+        font = QtGui.QFont()
+        font.setPointSize(9)
+        self.pushButton.setFont(font)
+        self.pushButton.setObjectName("pushButton")
+
+        self.retranslateUi(Form)
+        QtCore.QMetaObject.connectSlotsByName(Form)
+
+    def retranslateUi(self, Form):
+        _translate = QtCore.QCoreApplication.translate
+        Form.setWindowTitle(_translate("Form", "Регистрация"))
+        self.label.setText(_translate("Form", "Регистрация"))
+        self.label_2.setText(_translate("Form", "Логин"))
+        self.label_3.setText(_translate("Form", "Пароль"))
+        self.label_4.setText(_translate("Form", "Пароль"))
+        self.pushButton.setText(_translate("Form", "Зарегистрироваться"))
+
+
+# Форма входа
+class EnterForm(object):
+    def setupUi(self, Form):
+        Form.setObjectName("Form")
+        Form.setStyleSheet(" background-image: url('source/image/background_enter.jpg');")
+        Form.resize(419, 385)
+        self.label = QtWidgets.QLabel(Form)
+        self.label.setGeometry(QtCore.QRect(100, 40, 260, 41))
+        font = QtGui.QFont()
+        font.setPointSize(22)
+        self.label.setFont(font)
+        self.label.setObjectName("label")
+        self.label_2 = QtWidgets.QLabel(Form)
+        self.label_2.setGeometry(QtCore.QRect(50, 130, 60, 21))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_2.setFont(font)
+        self.label_2.setObjectName("label_2")
+        self.label_3 = QtWidgets.QLabel(Form)
+        self.label_3.setGeometry(QtCore.QRect(50, 180, 70, 30))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_3.setFont(font)
+        self.label_3.setObjectName("label_3")
+        self.lineEdit = QtWidgets.QLineEdit(Form)
+        self.lineEdit.setGeometry(QtCore.QRect(129, 130, 201, 30))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.lineEdit.setFont(font)
+        self.lineEdit.setText("")
+        self.lineEdit.setObjectName("lineEdit")
+        self.lineEdit_2 = QtWidgets.QLineEdit(Form)
+        self.lineEdit_2.setGeometry(QtCore.QRect(130, 180, 201, 30))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.lineEdit_2.setFont(font)
+        self.lineEdit_2.setText("")
+        self.lineEdit_2.setObjectName("lineEdit_2")
+        self.pushButton = QtWidgets.QPushButton(Form)
+        self.pushButton.setGeometry(QtCore.QRect(240, 240, 141, 28))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.pushButton.setFont(font)
+        self.pushButton.setObjectName("pushButton")
+        self.pushButton_2 = QtWidgets.QPushButton(Form)
+        self.pushButton_2.setGeometry(QtCore.QRect(240, 270, 141, 28))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.pushButton_2.setFont(font)
+        self.pushButton_2.setObjectName("pushButton_2")
+
+        self.retranslateUi(Form)
+        QtCore.QMetaObject.connectSlotsByName(Form)
+
+    def retranslateUi(self, Form):
+        _translate = QtCore.QCoreApplication.translate
+        Form.setWindowTitle(_translate("Form", "Вход"))
+        self.label.setText(_translate("Form", "Видеоредактор"))
+        self.label_2.setText(_translate("Form", "Логин"))
+        self.label_3.setText(_translate("Form", "Пароль"))
+        self.pushButton.setText(_translate("Form", "Вход"))
+        self.pushButton_2.setText(_translate("Form", "Регистрация"))
+
+
 
 # Music editor form
 class PianoForm(object):

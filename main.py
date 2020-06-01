@@ -9,9 +9,8 @@ from PyQt5.QtWidgets import (QApplication, QWidget, QMainWindow, QFileDialog, QT
                              QMessageBox, QHBoxLayout, QLabel, QColorDialog, QPushButton)
 from PyQt5.QtGui import QPixmap, QColor, QIcon, QImage, QPainter, QPen
 from PIL import Image, ImageFilter
-from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import Qt, QPoint
-from ui_forms import PianoForm, PhotoEditorForm, VideoEditorForm
+from ui_forms import RegistrationForm, EnterForm, PianoForm, PhotoEditorForm, VideoEditorForm
 
 # Переменные с ником пользователя, его сохранённой музыкой и изображениями
 USER = ''
@@ -175,7 +174,7 @@ class PhotoEditor(QMainWindow, PhotoEditorForm):
         self.pushButton_8.clicked.connect(self.negative)
         self.pushButton_9.clicked.connect(self.shades_of_grey)
         self.pushButton_10.clicked.connect(self.sepia)
-        self.pushButton_11.clicked.connect(self.contur)
+        self.pushButton_11.clicked.connect(self.contour)
         self.pushButton_12.clicked.connect(self.change_drawing_box_value)
         self.pushButton_14.clicked.connect(self.change_brushColor)
         self.pushButton_15.clicked.connect(self.eraser)
@@ -201,6 +200,8 @@ class PhotoEditor(QMainWindow, PhotoEditorForm):
         img_name = img_name[:]
         if len(img_name) > 0:
             self.open_image = Image.open(img_name)
+            # Максимальный размер 500 * 500 пикселей обусловлен скоростью обновления полотна,
+            # а также скоростью наложения фильтров
             if 500 < self.open_image.size[0] or 500 < self.open_image.size[1]:
                 valid = QMessageBox.question(self, '',
                                              'Максимальный размер изображений 500 x 500!', QMessageBox.Yes)
@@ -427,7 +428,7 @@ class PhotoEditor(QMainWindow, PhotoEditorForm):
             valid = QMessageBox.question(self, '',
                                          'Загрузите изображение!', QMessageBox.Yes)
 
-    def contur(self):
+    def contour(self):
         if self.open_image != '':
             img_name = QFileDialog.getSaveFileName(self, 'Сохранить картинку',
                                                    '', "Картинка(*.png *.jpg *png)")[0]
@@ -597,6 +598,7 @@ class VidoeEditor(QMainWindow, VideoEditorForm):
 
     # Удаление ненужных изображений
     def delete_image(self):
+        # Проверка, что функция вызвана другой функцией
         if inspect.stack()[2][3] == '<module>':
             i = 1
             for j in range(self.tableWidget.rowCount()):
@@ -658,10 +660,13 @@ class VidoeEditor(QMainWindow, VideoEditorForm):
             valid = QMessageBox.question(self, '',
                                          'У вас нет сохранённой музыки!', QMessageBox.Yes)
 
+    # Вызов функции удаления музыки
+    # Иначе удаление будет происходить при любом изменении в таблице с музыкой
     def delete_music1(self):
         self.delete_music()
 
     def delete_music(self):
+        # Проверка, что функция была вызвана другой функцией
         if inspect.stack()[2][3] == '<module>':
             i = 1
             for j in range(self.tableWidget_2.rowCount()):
@@ -682,7 +687,7 @@ class VidoeEditor(QMainWindow, VideoEditorForm):
     def choice_background(self):
         self.background_image_color = QColorDialog.getColor().name()
 
-    # Увеличение изображений
+    # Увеличение изображений, чтобы при создании видео все картинки были одного размера
     def increase_images(self):
         max_x = 0
         max_y = 0
@@ -705,7 +710,7 @@ class VidoeEditor(QMainWindow, VideoEditorForm):
             elem[0] = f'image{counter}.jpg'
             counter += 1
 
-    # Уменьшение изображений
+    # Уменьшение изображений, чтобы при создании видео все картинки были одного размера
     def decrease_images(self):
         min_x = 10000000000000
         min_y = 10000000000000
@@ -726,6 +731,7 @@ class VidoeEditor(QMainWindow, VideoEditorForm):
 
     # Создание видео
     def make_video(self):
+        # Создаём видео из добавленных изображений
         frames = [elem[0] for elem in self.images]
         frame = cv2.imread(frames[0])
         writer = cv2.VideoWriter('output_slides_m.avi', cv2.VideoWriter_fourcc(*'MJPG'),
@@ -756,6 +762,7 @@ class VidoeEditor(QMainWindow, VideoEditorForm):
                                          'Внимание! Возможно несовпадение длины ряда изображений с длиной музыки!\n'
                                          'Продолжить?', QMessageBox.Yes, QMessageBox.No)
             if valid == QMessageBox.Yes:
+                # Записываем добавленную музыку
                 with open('music_for_slides.mp3', 'wb') as music:
                     for elem in self.music:
                         music.write(open(elem[0], 'rb').read())
@@ -763,7 +770,9 @@ class VidoeEditor(QMainWindow, VideoEditorForm):
                 file_name = QFileDialog.getSaveFileName(self, 'Сохранить видео',
                                                         '', "Видео(*.mp4)")[0]
                 if len(file_name) > 0:
+                    # Добавляем музыку в видео
                     my_clip.write_videofile(rf'{file_name}', audio='music_for_slides.mp3')
+                    # Очищаем все поля редактора для дальнейшей работы
                     self.images = list()
                     self.music = list()
                     self.tableWidget.clear()
@@ -798,70 +807,8 @@ class VidoeEditor(QMainWindow, VideoEditorForm):
                                              'Для создания видео добавьте 5 и более изображений!', QMessageBox.Yes)
 
 
-# Форма регистрации
-class Registration_Form(object):
-    def setupUi(self, Form):
-        Form.setObjectName("Form")
-        Form.resize(409, 389)
-        Form.setStyleSheet(" background-image: url('source/image/background_enter.jpg');")
-        self.label = QtWidgets.QLabel(Form)
-        self.label.setGeometry(QtCore.QRect(110, 50, 171, 41))
-        font = QtGui.QFont()
-        font.setPointSize(17)
-        self.label.setFont(font)
-        self.label.setObjectName("label")
-        self.label_2 = QtWidgets.QLabel(Form)
-        self.label_2.setGeometry(QtCore.QRect(71, 133, 50, 21))
-        font = QtGui.QFont()
-        font.setPointSize(10)
-        self.label_2.setFont(font)
-        self.label_2.setObjectName("label_2")
-        self.label_3 = QtWidgets.QLabel(Form)
-        self.label_3.setGeometry(QtCore.QRect(64, 187, 60, 31))
-        font = QtGui.QFont()
-        font.setPointSize(10)
-        self.label_3.setFont(font)
-        self.label_3.setObjectName("label_3")
-        self.label_4 = QtWidgets.QLabel(Form)
-        self.label_4.setGeometry(QtCore.QRect(65, 248, 60, 31))
-        font = QtGui.QFont()
-        font.setPointSize(10)
-        self.label_4.setFont(font)
-        self.label_4.setObjectName("label_4")
-        self.lineEdit = QtWidgets.QLineEdit(Form)
-        self.lineEdit.setGeometry(QtCore.QRect(130, 130, 220, 30))
-        font = QtGui.QFont()
-        font.setPointSize(10)
-        self.lineEdit.setFont(font)
-        self.lineEdit.setObjectName("lineEdit")
-        self.lineEdit_2 = QtWidgets.QLineEdit(Form)
-        self.lineEdit_2.setGeometry(QtCore.QRect(130, 190, 220, 30))
-        self.lineEdit_2.setObjectName("lineEdit_2")
-        self.lineEdit_3 = QtWidgets.QLineEdit(Form)
-        self.lineEdit_3.setGeometry(QtCore.QRect(130, 250, 220, 30))
-        self.lineEdit_3.setObjectName("lineEdit_3")
-        self.pushButton = QtWidgets.QPushButton(Form)
-        self.pushButton.setGeometry(QtCore.QRect(100, 310, 220, 31))
-        font = QtGui.QFont()
-        font.setPointSize(9)
-        self.pushButton.setFont(font)
-        self.pushButton.setObjectName("pushButton")
-
-        self.retranslateUi(Form)
-        QtCore.QMetaObject.connectSlotsByName(Form)
-
-    def retranslateUi(self, Form):
-        _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Регистрация"))
-        self.label.setText(_translate("Form", "Регистрация"))
-        self.label_2.setText(_translate("Form", "Логин"))
-        self.label_3.setText(_translate("Form", "Пароль"))
-        self.label_4.setText(_translate("Form", "Пароль"))
-        self.pushButton.setText(_translate("Form", "Зарегистрироваться"))
-
-
 # Регистрация
-class Registration(QMainWindow, Registration_Form):
+class Registration(QMainWindow, RegistrationForm):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
@@ -898,72 +845,8 @@ class Registration(QMainWindow, Registration_Form):
                                              QMessageBox.Yes)
 
 
-# Форма входа
-class Enter_Form(object):
-    def setupUi(self, Form):
-        Form.setObjectName("Form")
-        Form.setStyleSheet(" background-image: url('source/image/background_enter.jpg');")
-        Form.resize(419, 385)
-        self.label = QtWidgets.QLabel(Form)
-        self.label.setGeometry(QtCore.QRect(100, 40, 260, 41))
-        font = QtGui.QFont()
-        font.setPointSize(22)
-        self.label.setFont(font)
-        self.label.setObjectName("label")
-        self.label_2 = QtWidgets.QLabel(Form)
-        self.label_2.setGeometry(QtCore.QRect(50, 130, 60, 21))
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.label_2.setFont(font)
-        self.label_2.setObjectName("label_2")
-        self.label_3 = QtWidgets.QLabel(Form)
-        self.label_3.setGeometry(QtCore.QRect(50, 180, 70, 30))
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.label_3.setFont(font)
-        self.label_3.setObjectName("label_3")
-        self.lineEdit = QtWidgets.QLineEdit(Form)
-        self.lineEdit.setGeometry(QtCore.QRect(129, 130, 201, 30))
-        font = QtGui.QFont()
-        font.setPointSize(10)
-        self.lineEdit.setFont(font)
-        self.lineEdit.setText("")
-        self.lineEdit.setObjectName("lineEdit")
-        self.lineEdit_2 = QtWidgets.QLineEdit(Form)
-        self.lineEdit_2.setGeometry(QtCore.QRect(130, 180, 201, 30))
-        font = QtGui.QFont()
-        font.setPointSize(10)
-        self.lineEdit_2.setFont(font)
-        self.lineEdit_2.setText("")
-        self.lineEdit_2.setObjectName("lineEdit_2")
-        self.pushButton = QtWidgets.QPushButton(Form)
-        self.pushButton.setGeometry(QtCore.QRect(240, 240, 141, 28))
-        font = QtGui.QFont()
-        font.setPointSize(10)
-        self.pushButton.setFont(font)
-        self.pushButton.setObjectName("pushButton")
-        self.pushButton_2 = QtWidgets.QPushButton(Form)
-        self.pushButton_2.setGeometry(QtCore.QRect(240, 270, 141, 28))
-        font = QtGui.QFont()
-        font.setPointSize(10)
-        self.pushButton_2.setFont(font)
-        self.pushButton_2.setObjectName("pushButton_2")
-
-        self.retranslateUi(Form)
-        QtCore.QMetaObject.connectSlotsByName(Form)
-
-    def retranslateUi(self, Form):
-        _translate = QtCore.QCoreApplication.translate
-        Form.setWindowTitle(_translate("Form", "Вход"))
-        self.label.setText(_translate("Form", "Видеоредактор"))
-        self.label_2.setText(_translate("Form", "Логин"))
-        self.label_3.setText(_translate("Form", "Пароль"))
-        self.pushButton.setText(_translate("Form", "Вход"))
-        self.pushButton_2.setText(_translate("Form", "Регистрация"))
-
-
 # Вход
-class Enter(QMainWindow, Enter_Form):
+class Enter(QMainWindow, EnterForm):
     def __init__(self):
         super().__init__()
         self.setupUi(self)
@@ -979,6 +862,7 @@ class Enter(QMainWindow, Enter_Form):
         if len(login) == 0 or len(password) == 0:
             valid = QMessageBox.question(self, 'Error',
                                          'Все поля должны быть заполнены!', QMessageBox.Yes)
+        # Проверка правильности введённых данных
         else:
             logins = self.cursor.execute(f'''SELECT login FROM Users''').fetchall()
             logins = [elem[0] for elem in logins]
@@ -986,6 +870,7 @@ class Enter(QMainWindow, Enter_Form):
                 result = self.cursor.execute(f'''SELECT password FROM Users
                 WHERE login = ?''', (login,)).fetchone()
                 if password == str(result[0]):
+                    # Загрузка сохранённых ранее изображений и музыки в соответствующие переменные
                     USER = login
                     result = self.cursor.execute('''SELECT save_img FROM Users
                                WHERE login = ?''', (USER,)).fetchone()
@@ -999,6 +884,7 @@ class Enter(QMainWindow, Enter_Form):
                         SAVED_MUSIC = ''
                     else:
                         SAVED_MUSIC = result[0]
+                    # Открытие окна редактора
                     self.videoEditor = VidoeEditor()
                     self.videoEditor.show()
                 else:
