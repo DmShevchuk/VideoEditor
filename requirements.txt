@@ -1,0 +1,5 @@
+opencv-python~=4.2.0.34
+moviepy~=1.0.2
+pygame~=1.9.6
+PyQt5~=5.14.2
+Pillow~=7.1.2
