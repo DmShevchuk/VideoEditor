@@ -894,6 +894,7 @@ class Enter(QMainWindow, EnterForm):
                 valid = QMessageBox.question(self, 'Error',
                                              'Неверное имя пользователя!', QMessageBox.Yes)
 
+    # Вызов формы регистрации
     def registration(self):
         self.registration = Registration()
         self.registration.show()
